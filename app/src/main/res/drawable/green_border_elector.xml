@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pressed / Hovered state -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#E0F2F1"/> <!-- light green background -->
+            <stroke
+                android:width="2dp"
+                android:color="#4CAF50" /> <!-- green border -->
+            <corners android:radius="16dp"/> <!-- rounded edges -->
+            <padding
+                android:left="8dp"
+                android:top="8dp"
+                android:right="8dp"
+                android:bottom="8dp"/>
+            <shadowColor android:color="#55000000"/> <!-- subtle shadow -->
+        </shape>
+    </item>
+
+    <!-- Default (not pressed) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/> <!-- no fill -->
+            <stroke
+                android:width="2dp"
+                android:color="#4CAF50" /> <!-- green border -->
+            <corners android:radius="16dp"/> <!-- rounded edges -->
+            <padding
+                android:left="8dp"
+                android:top="8dp"
+                android:right="8dp"
+                android:bottom="8dp"/>
+        </shape>
+    </item>
+
+</selector>

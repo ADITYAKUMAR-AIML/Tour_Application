@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Scrollable area -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Single ConstraintLayout as content container -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Header image -->
+
+            <!-- Back button (top-start) -->
+
+            <ImageView
+                android:id="@+id/header_image"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                android:contentDescription="header image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/beach1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:shapeAppearanceOverlay="@style/RoundedBottomCorners" />
+
+            <!-- Favorite (heart) (top-end) -->
+
+            <!-- Thumbnails strip overlapping bottom of header -->
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toTopOf="@+id/rv_thumbnails"
+                app:layout_constraintEnd_toEndOf="@+id/header_image"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/header_image"
+                app:layout_constraintTop_toTopOf="@id/header_image"
+                app:layout_constraintVertical_bias="0.071"
+                app:tint="@android:color/white" />
+
+            <!-- Content Card -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_thumbnails"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="-36dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header_image" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/content_card"
+                android:background="@drawable/green_border_elector"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                app:layout_constraintTop_toBottomOf="@id/rv_thumbnails"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- Use ConstraintLayout inside card for vertical layout -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/card_inner"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/green_border_elector"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Passo Rolle, TN"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Location -->
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Hawaie, USA"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+                    <!-- RatingBar -->
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:rating="4.5"
+                        android:stepSize="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_location" />
+
+                    <TextView
+                        android:id="@+id/tv_rating_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="4.5 Rating"
+                        android:textSize="14sp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/ratingBar"
+                        app:layout_constraintStart_toEndOf="@id/ratingBar" />
+
+                    <!-- Chips (3) using horizontal chain -->
+
+                    <TextView
+                        android:id="@+id/chip1"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/chip_bg"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="2 Bed"
+                        app:layout_constraintEnd_toStartOf="@id/chip2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                        app:layout_constraintVertical_bias="0.157" />
+
+                    <TextView
+                        android:id="@+id/chip2"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/chip_bg"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Guide"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_facilities_title"
+                        app:layout_constraintEnd_toStartOf="@id/chip3"
+                        app:layout_constraintStart_toEndOf="@id/chip1"
+                        app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                        app:layout_constraintVertical_bias="0.272" />
+
+                    <!-- Make the three chips form an equal-width chain -->
+                    <TextView
+                        android:id="@+id/chip3"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/chip_bg"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Wifi"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_facilities_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/chip2"
+                        app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                        app:layout_constraintVertical_bias="0.272" />
+
+
+
+                    <!-- Facilities title -->
+                    <TextView
+                        android:id="@+id/tv_facilities_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Facilities Offered"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/chip1" />
+
+                    <!-- Facilities description -->
+                    <TextView
+                        android:id="@+id/tv_facilities_desc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="2dp"
+                        android:text="This 2 bed /1 bath home boasts an enormous, open-living plan, accented by striking architectural features and high-end finishes. Feel inspired by open sight lines that embrace the outdoors, crowned by stunning coffered ceilings."
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_facilities_title"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- spacer view for breathing room under card -->
+            <View
+                android:id="@+id/spacer"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                app:layout_constraintTop_toBottomOf="@id/content_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom fixed bar (ConstraintLayout) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$1,200"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_price_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="per night"
+            android:textSize="12sp"
+            android:textColor="#888888"
+            app:layout_constraintStart_toEndOf="@id/tv_price"
+            app:layout_constraintTop_toTopOf="@id/tv_price"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price"
+            android:layout_marginStart="8dp"/>
+
+        <Button
+            android:id="@+id/btn_reserve"
+            android:layout_width="140dp"
+            android:layout_height="44dp"
+            android:backgroundTint="@color/blue"
+            android:text="Reserve"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.968"
+            app:layout_constraintStart_toEndOf="@+id/tv_price_sub"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

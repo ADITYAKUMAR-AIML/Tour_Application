@@ -20,7 +20,7 @@
             android:layout_height="40dp"
             android:contentDescription="Icon"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/thetour" />
     </FrameLayout>
 
     <!-- Text below the icon -->

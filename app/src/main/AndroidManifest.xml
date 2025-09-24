@@ -6,27 +6,31 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/thetour"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/thetour_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tour_Application"
         tools:targetApi="31">
         <activity
+            android:name=".PlaceDetail"
+            android:exported="True" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"
+            android:windowSoftInputMode="adjustNothing"></activity>
+        <activity
+            android:name=".SeeAll"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

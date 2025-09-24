@@ -9,6 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/RelativeL"
         android:layout_height="150dp">
 
         <!-- Background Image -->
@@ -64,7 +65,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/star_1" />
+                        android:src="@drawable/star" />
 
                     <TextView
                         android:id="@+id/tvRating"

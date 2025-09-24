@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context=".SplashActivity">
 
 
@@ -18,7 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -60,19 +62,20 @@
                 android:text="Explore The World With Us"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textSize="30dp"/>
+                android:textSize="25dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="350dp"
                 android:id="@+id/GettingStarted"
+                android:layout_width="250dp"
+                android:layout_height="75dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:layout_height="75dp"
-                android:textSize="18sp"
-                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/blue_button"
                 android:text="Getting Started"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

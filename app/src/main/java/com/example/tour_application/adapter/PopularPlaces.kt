@@ -1,8 +1,11 @@
 package com.example.tour_application.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tour_application.PlaceDetail
 import com.example.tour_application.databinding.PopularPlaceDemoBinding
 
 class PopularPlaces(
@@ -37,7 +40,10 @@ class PopularPlaces(
                 tvTitle.text = names[position]
                 imageView.setImageResource(icons[position])
                 tvLocation.text = location[position]
-
+                RelativeL.setOnClickListener {
+                    val intent = Intent(binding.root.context , PlaceDetail::class.java)
+                    binding.root.context.startActivity(intent)
+                }
                 }
             }
         }

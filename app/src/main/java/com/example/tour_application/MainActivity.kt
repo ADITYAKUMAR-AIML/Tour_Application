@@ -72,6 +72,15 @@ class MainActivity : AppCompatActivity() {
 
             rv.layoutManager = LinearLayoutManager(binding.root.context)
             rv.adapter = PopularPlaces(names, location , icons)
+
+            seeall.setOnClickListener {
+                val intent = Intent(binding.root.context, SeeAll::class.java)
+                startActivity(intent)
+            }
+
+
+        }
+
         }
     }
-}
+
